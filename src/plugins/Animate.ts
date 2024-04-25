@@ -1,4 +1,4 @@
-import { PointData, Point } from 'pixi.js';
+import { IPointData, Point } from 'pixi.js';
 import { Plugin } from './Plugin';
 import ease from '../ease';
 
@@ -11,7 +11,7 @@ export interface IAnimateOptions
     time?: number;
 
     /** Position to move the viewport to */
-    position?: PointData;
+    position?: IPointData;
 
     /**
      * Desired viewport width in world pixels

@@ -1,4 +1,4 @@
-import { Container, IHitArea, EventSystem, DestroyOptions, View, PointData, Point, Rectangle, Ticker } from 'pixi.js';
+import { Container, IHitArea, EventSystem, IDestroyOptions, IPointData, Point, Rectangle, Ticker } from 'pixi.js';
 
 import { InputManager } from './InputManager';
 import { PluginManager } from './PluginManager';
@@ -241,7 +241,7 @@ export class Viewport extends Container
     }
 
     /** Overrides PIXI.Container's destroy to also remove the 'wheel' and PIXI.Ticker listeners */
-    destroy(options?: DestroyOptions): void
+    destroy(options?: IDestroyOptions): void
     {
         if (!this.options.noTicker && this.tickerFunction)
         {
@@ -383,9 +383,9 @@ export class Viewport extends Container
     }
 
     /** Change coordinates from screen to world */
-    public toWorld<P extends PointData = Point>(x: number, y: number): P;
+    public toWorld<P extends IPointData = Point>(x: number, y: number): P;
     /** Change coordinates from screen to world */
-    public toWorld<P extends PointData = Point>(screenPoint: PointData): P;
+    public toWorld<P extends IPointData = Point>(screenPoint: IPointData): P;
 
     /**
      * Changes coordinate from screen to world
@@ -393,20 +393,20 @@ export class Viewport extends Container
      * @param {number} y
      * @returns {PIXI.Point}
      */
-    public toWorld<P extends PointData = Point>(x: number | PointData, y?: number): P
+    public toWorld<P extends IPointData = Point>(x: number | IPointData, y?: number): P
     {
         if (arguments.length === 2)
         {
             return this.toLocal<P>(new Point(x as number, y));
         }
 
-        return this.toLocal<P>(x as PointData);
+        return this.toLocal<P>(x as IPointData);
     }
 
     /** Change coordinates from world to screen */
-    public toScreen<P extends PointData = Point>(x: number, y: number): P;
+    public toScreen<P extends IPointData = Point>(x: number, y: number): P;
     /** Change coordinates from world to screen */
-    public toScreen<P extends PointData = Point>(worldPoint: PointData): P;
+    public toScreen<P extends IPointData = Point>(worldPoint: IPointData): P;
 
     /**
      * Changes coordinate from world to screen
@@ -414,14 +414,14 @@ export class Viewport extends Container
      * @param {number} y
      * @returns {PIXI.Point}
      */
-    public toScreen<P extends PointData = Point>(x: number | PointData, y?: number): P
+    public toScreen<P extends IPointData = Point>(x: number | IPointData, y?: number): P
     {
         if (arguments.length === 2)
         {
             return this.toGlobal<P>(new Point(x as number, y));
         }
 
-        return this.toGlobal<P>(x as PointData);
+        return this.toGlobal<P>(x as IPointData);
     }
 
     /** Screen width in world coordinates */
@@ -464,7 +464,7 @@ export class Viewport extends Container
     public moveCenter(x: number, y: number): Viewport;
 
     /** Move center of viewport to {@code center}. */
-    public moveCenter(center: PointData): Viewport;
+    public moveCenter(center: IPointData): Viewport;
 
     /**
      * Move center of viewport to (x, y)
@@ -472,7 +472,7 @@ export class Viewport extends Container
      * @param {number} [y]
      * @return {Viewport}
      */
-    public moveCenter(...args: [number, number] | [PointData]): Viewport
+    public moveCenter(...args: [number, number] | [IPointData]): Viewport
     {
         let x: number;
         let y: number;

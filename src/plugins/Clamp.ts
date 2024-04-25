@@ -199,7 +199,7 @@ export class Clamp extends Plugin
             {
                 if (this.options.left !== null)
                 {
-                    if (this.parent.left < (this.options.left === true ? 0 : this.options.left))
+                    if (this.options.left !== false && this.parent.left < (this.options.left === true ? 0 : this.options.left))
                     {
                         this.parent.x = -(this.options.left === true ? 0 : this.options.left) * this.parent.scale.x;
                         decelerate.x = 0;
@@ -208,7 +208,7 @@ export class Clamp extends Plugin
                 }
                 if (this.options.right !== null)
                 {
-                    if (this.parent.right > (this.options.right === true ? this.parent.worldWidth : this.options.right))
+                    if (this.options.right !== false && this.parent.right > (this.options.right === true ? this.parent.worldWidth : this.options.right))
                     {
                         this.parent.x = (-(this.options.right === true ? this.parent.worldWidth : this.options.right)
                             * this.parent.scale.x) + this.parent.screenWidth;
@@ -256,7 +256,7 @@ export class Clamp extends Plugin
             {
                 if (this.options.top !== null)
                 {
-                    if (this.parent.top < (this.options.top === true ? 0 : this.options.top))
+                    if (this.options.top !== false && this.parent.top < (this.options.top === true ? 0 : this.options.top))
                     {
                         this.parent.y = -(this.options.top === true ? 0 : this.options.top)
                             * this.parent.scale.y;
@@ -266,7 +266,7 @@ export class Clamp extends Plugin
                 }
                 if (this.options.bottom !== null)
                 {
-                    if (this.parent.bottom > (this.options.bottom === true ? this.parent.worldHeight : this.options.bottom))
+                    if (this.options.bottom !== false && this.parent.bottom > (this.options.bottom === true ? this.parent.worldHeight : this.options.bottom))
                     {
                         this.parent.y = (-(this.options.bottom === true ? this.parent.worldHeight : this.options.bottom)
                             * this.parent.scale.y) + this.parent.screenHeight;

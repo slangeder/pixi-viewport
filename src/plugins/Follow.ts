@@ -1,6 +1,6 @@
 import { Plugin } from './Plugin';
 
-import type { Container, PointData } from 'pixi.js';
+import type { Container, IPointData } from 'pixi.js';
 import type { Viewport } from '../Viewport';
 
 /** Options for {@link Follow}. */
@@ -49,7 +49,7 @@ export class Follow extends Plugin
     public target: Container;
 
     /** The velocity provided the viewport by following, at the current time. */
-    protected velocity: PointData;
+    protected velocity: IPointData;
 
     /**
      * This is called by {@link Viewport.follow}.

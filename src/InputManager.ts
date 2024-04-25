@@ -1,11 +1,11 @@
-import { Point, Rectangle, PointData, FederatedPointerEvent } from 'pixi.js';
+import { Point, Rectangle, IPointData, FederatedPointerEvent } from 'pixi.js';
 
 import type { Viewport } from './Viewport';
 
 export interface IViewportTouch
 {
     id: number;
-    last: PointData | null;
+    last: IPointData | null;
 }
 
 /**
@@ -46,7 +46,8 @@ export class InputManager
         if (this.viewport.options.allowPreserveDragOutside)
 
         {
-            this.viewport.on('globalpointermove', this.move, this);
+            // TODO: globalpointermove is deprecated
+            this.viewport.on('pointermove', this.move, this);
         }
         else
         {

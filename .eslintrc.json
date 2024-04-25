@@ -20,17 +20,12 @@
     "node_modules"
   ],
   "rules": {
-    "@typescript-eslint/triple-slash-reference": [
-      "off"
-    ],
+    "@typescript-eslint/triple-slash-reference": "off",
     "spaced-comment": [
       "off"
     ],
     "no-duplicate-imports": [
       "off"
     ]
-  },
-  "extends": [
-    "@pixi/eslint-config"
-  ]
+  }
 }

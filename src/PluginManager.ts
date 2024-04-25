@@ -1,3 +1,5 @@
+import type { FederatedPointerEvent } from 'pixi.js';
+import type { Viewport } from './Viewport';
 import type {
     Animate,
     Bounce,
@@ -13,8 +15,6 @@ import type {
     SnapZoom,
     Wheel,
 } from './plugins';
-import type { FederatedEvent } from 'pixi.js';
-import type { Viewport } from './Viewport';
 
 const PLUGIN_ORDER = [
     'drag',
@@ -233,7 +233,7 @@ export class PluginManager
      * @internal
      * @ignore
      */
-    public down(event: FederatedEvent): boolean
+    public down(event: FederatedPointerEvent): boolean
     {
         let stop = false;
 
@@ -254,7 +254,7 @@ export class PluginManager
      * @internal
      * @ignore
      */
-    public move(event: FederatedEvent): boolean
+    public move(event: FederatedPointerEvent): boolean
     {
         let stop = false;
 
@@ -275,7 +275,7 @@ export class PluginManager
      * @internal
      * @ignore
      */
-    public up(event: FederatedEvent): boolean
+    public up(event: FederatedPointerEvent): boolean
     {
         let stop = false;
 
